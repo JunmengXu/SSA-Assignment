@@ -1,0 +1,16 @@
+title Connect Edge Computing Resource(Busy)
+
+Client->Client:connect(target)
+activate Client
+Client->EdgeComputingServerA:connect(clientAddress)
+activate EdgeComputingServerA
+
+
+deactivate CentralManagementServer
+EdgeComputingServerA->EdgeComputingServerA:ChangeServer
+activate EdgeComputingServerA
+deactivate EdgeComputingServerA
+Client<--EdgeComputingServerA:
+deactivate EdgeComputingServerA
+deactivate Client
+

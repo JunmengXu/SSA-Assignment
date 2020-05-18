@@ -1,0 +1,16 @@
+title Change Server
+
+activate EdgeComputingServerA
+EdgeComputingServerA->CentralManagementServer:searchNearestNode(clientAddress)
+activate CentralManagementServer
+EdgeComputingServerA<--CentralManagementServer:
+deactivate CentralManagementServer
+Client<-EdgeComputingServerA:connect(address)
+activate Client
+Client->Client:ConnectEdgeComputingResource
+activate Client
+deactivate Client
+Client-->EdgeComputingServerA:
+deactivate Client
+deactivate EdgeComputingServerA
+

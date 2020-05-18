@@ -1,0 +1,16 @@
+title Connect Edge Computing Resource
+
+Client->Client:connect(target)
+activate Client
+Client->EdgeComputingServer:connect(clientAddress)
+activate EdgeComputingServer
+EdgeComputingServer->EdgeComputingServer:notifyCentral()
+activate EdgeComputingServer
+EdgeComputingServer->CentralManagementServer:update()
+activate CentralManagementServer
+EdgeComputingServer<--CentralManagementServer:
+deactivate CentralManagementServer
+deactivate EdgeComputingServer
+Client<--EdgeComputingServer:
+deactivate EdgeComputingServer
+deactivate Client
