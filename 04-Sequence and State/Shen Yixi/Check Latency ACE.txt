@@ -1,0 +1,18 @@
+participant EdgeComputingServer
+
+participant Client
+
+
+
+EdgeComputingServer->Client:setRequest()
+activate Client
+
+
+
+EdgeComputingServer<--Client:change server
+Client-->EdgeComputingServer:return latency
+deactivate Client
+
+
+
+
