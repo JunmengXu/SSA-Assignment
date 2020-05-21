@@ -1,0 +1,17 @@
+title Dealing Data
+
+actor Client
+entity EdgeServer
+entity GameServer
+
+Client->EdgeServer:transferOperationData(OperationData)
+activate EdgeServer
+EdgeServer->GameServer:transferData(OperationData)
+
+activate GameServer
+GameServer->GameServer:dealData(OperationData)
+GameServer-->EdgeServer:transferData(treatedData)
+deactivate GameServer
+
+EdgeServer->EdgeServer:runData(treatedData)
+EdgeServer-->Client:show()

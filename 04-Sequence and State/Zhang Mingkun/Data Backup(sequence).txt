@@ -1,0 +1,20 @@
+title Data Backup
+
+actor EdgeServer
+control EdgeServerControl
+participant Backup
+
+EdgeServer->EdgeServerControl:createBackup()
+activate EdgeServerControl
+
+EdgeServerControl->Backup:createBackup()
+activate Backup
+
+Backup->Backup:setBackup()
+Backup-->EdgeServerControl:
+deactivate Backup
+
+EdgeServerControl-->EdgeServer:
+deactivate EdgeServerControl
+
+
