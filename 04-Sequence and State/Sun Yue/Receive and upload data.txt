@@ -1,0 +1,31 @@
+title Receive and upload data
+
+activate Client
+Client->Client:CreateCommand()
+activate Client
+Client<<--Client:returnCommand
+deactivate Client
+Client->EdgeComputingServer:command
+deactivate Client
+activate EdgeComputingServer
+EdgeComputingServer->EdgeComputingServer:ReceiverCommand()
+activate EdgeComputingServer
+EdgeComputingServer<<--EdgeComputingServer:returnCommand
+deactivate EdgeComputingServer
+activate EdgeComputingServer
+EdgeComputingServer->EdgeComputingServer:ProcessCommand()
+Client<<--EdgeComputingServer:returnvalue
+deactivate EdgeComputingServer
+EdgeComputingServer->CentralManagementServer:data
+deactivate EdgeComputingServer
+activate CentralManagementServer
+CentralManagementServer->CentralManagementServer:Receiverdata()
+activate CentralManagementServer
+CentralManagementServer<<--CentralManagementServer:data
+deactivate CentralManagementServer
+activate CentralManagementServer
+CentralManagementServer->CentralManagementServer:Storeddata()
+deactivate CentralManagementServer
+
+
+
