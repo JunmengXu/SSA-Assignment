@@ -1,0 +1,18 @@
+[EdgeServer|backup
+           |getBackup();
+           setBackup();
+           createBackup();
+           transferData();
+           runData()
+]
+
+[Client|OperationData
+       |transferOperationData(OperationData)
+]
+
+[GameServer||DealData();
+             transferData()
+]
+
+[EdgeServer]-:>[GameServer]
+[Client]-:>[EdgeServer]
