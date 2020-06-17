@@ -1,0 +1,15 @@
+[EdgeComputingServer|Id:String;delay:String|EdgeServer(String id);confirm(String id,String command):void;
+state(String id,String state)
+]->[TransferInterface]
+
+[TransferInterface|-members:List<Server>|
++register(Server member):void
++transfer(String id,String infor):void
+]->[CentralMnagementServer]
+
+
+[CentralMnagementServer|Id:String;delay:String|
+command(String com):void
+register(String id,String state):void
+]->[TransferInterface]
+
